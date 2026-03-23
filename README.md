@@ -10,5 +10,5 @@ Bridge to FastReport NET
 
 
 
-XDReportFast \[API REFERENCE](https://www.xdevos.xdevforyou.net/reportfast).
+XDReportFast API REFERENCE (https://www.xdevos.xdevforyou.net/reportfast).
 
