@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll&#13;&#10;E:\FastXDReport\Windows\FastReport.dll" ReportInfo.Created="03/19/2026 04:49:33" ReportInfo.Modified="03/19/2026 04:49:35" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using FastReport.Matrix;
+using XDFastReportBridge;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /* XD_START */
+    // EXPOSED DATA SOURCES: Customer
+    public dynamic XD_Report { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic XD_Engine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic mMain { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic mEngine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic Customer { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Customer&quot;)); } }
+    /* XD_END */
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MySqlDataConnection Name="MySQL" ConnectionString="rijcmlqLWGnpmTT/WNJu+YZ4tQrT1arfH7qZ0GERuvOW4vWlsDrCYIkNRqcsVLGkZWvzJcFuWqVNn1G1N2T+QHWIPemix5XqU7FNfnGwNSL/ZWvZZqSTcJou4YsXLBaguChlKh/Otv54qaNhGNgBzb5QIhjDkcOkTFDcMRdY3TrnC57tkM=">
+      <TableDataSource Name="Customer" DataType="System.Int32" Enabled="true" SelectCommand="SELECT * FROM Customer"/>
+    </MySqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="BandaTitulo" Width="718.2" Height="37.8" CanGrow="true">
+      <PictureObject Name="ImgLogo" Left="600" Top="10" Width="100" Height="40" ImageFormat="Png" Image="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"/>
+      <TextObject Name="TxtTitulo" Left="18.9" Top="18.9" Width="529.2" Height="37.8" CanGrow="true" Text="XDREPORTFAST - XDEVFORYOU - (C) - 2026" VertAlign="Center" Font="Arial, 16pt, style=Bold"/>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

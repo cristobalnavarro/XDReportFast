@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll&#13;&#10;E:\FastXDReport\Windows\FastReport.dll" ReportInfo.Created="03/19/2026 04:44:26" ReportInfo.Modified="03/19/2026 04:44:29" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using FastReport.Matrix;
+using XDFastReportBridge;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /* XD_START */
+    // EXPOSED DATA SOURCES: Root, element, unique, keyref, Categories, Customers, Employees, Order_x0020_Details, Orders, Products, Shippers, Suppliers, MatrixDemo, Unicode, Root1, element1, unique1, keyref1, Categories1, Customers1, Employees1, Order_x0020_Details1, Orders1, Products1, Shippers1, Suppliers1, MatrixDemo1, Unicode1
+    public dynamic XD_Report { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic XD_Engine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic mMain { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic mEngine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic Root { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Root&quot;)); } }
+    public dynamic element { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;element&quot;)); } }
+    public dynamic unique { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;unique&quot;)); } }
+    public dynamic keyref { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;keyref&quot;)); } }
+    public dynamic Categories { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Categories&quot;)); } }
+    public dynamic Customers { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Customers&quot;)); } }
+    public dynamic Employees { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Employees&quot;)); } }
+    public dynamic Order_x0020_Details { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Order_x0020_Details&quot;)); } }
+    public dynamic Orders { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Orders&quot;)); } }
+    public dynamic Products { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Products&quot;)); } }
+    public dynamic Shippers { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Shippers&quot;)); } }
+    public dynamic Suppliers { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Suppliers&quot;)); } }
+    public dynamic MatrixDemo { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;MatrixDemo&quot;)); } }
+    public dynamic Unicode { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Unicode&quot;)); } }
+    public dynamic Root1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Root1&quot;)); } }
+    public dynamic element1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;element1&quot;)); } }
+    public dynamic unique1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;unique1&quot;)); } }
+    public dynamic keyref1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;keyref1&quot;)); } }
+    public dynamic Categories1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Categories1&quot;)); } }
+    public dynamic Customers1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Customers1&quot;)); } }
+    public dynamic Employees1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Employees1&quot;)); } }
+    public dynamic Order_x0020_Details1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Order_x0020_Details1&quot;)); } }
+    public dynamic Orders1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Orders1&quot;)); } }
+    public dynamic Products1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Products1&quot;)); } }
+    public dynamic Shippers1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Shippers1&quot;)); } }
+    public dynamic Suppliers1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Suppliers1&quot;)); } }
+    public dynamic MatrixDemo1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;MatrixDemo1&quot;)); } }
+    public dynamic Unicode1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Unicode1&quot;)); } }
+    /* XD_END */
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MySqlDataConnection Name="MySQL"/>
+    <TableDataSource Name="Root" ReferenceName="NWConn.Root" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element.complexType.choice._minOccurs" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element.complexType.choice._maxOccurs" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element.complexType.choice.__prefix" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element.complexType.__prefix" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element._name" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element._msdata:IsDataSet" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element._msdata:UseCurrentLocale" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element.__prefix" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema._xmlns" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema._xmlns:xs" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema._xmlns:msdata" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema._id" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.__prefix" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="element" ReferenceName="NWConn.element" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="element_ID" DataType="System.String"/>
+      <Column Name="_name" DataType="System.String"/>
+      <Column Name="_type" DataType="System.String"/>
+      <Column Name="_minOccurs" DataType="System.String"/>
+      <Column Name="__prefix" DataType="System.String"/>
+      <Column Name="complexType.sequence.__prefix" DataType="System.String"/>
+      <Column Name="complexType.__prefix" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="unique" ReferenceName="NWConn.unique" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="selector._xpath" DataType="System.String"/>
+      <Column Name="selector.__prefix" DataType="System.String"/>
+      <Column Name="field._xpath" DataType="System.String"/>
+      <Column Name="field.__prefix" DataType="System.String"/>
+      <Column Name="_name" DataType="System.String"/>
+      <Column Name="__prefix" DataType="System.String"/>
+      <Column Name="_msdata:ConstraintName" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="keyref" ReferenceName="NWConn.keyref" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="selector._xpath" DataType="System.String"/>
+      <Column Name="selector.__prefix" DataType="System.String"/>
+      <Column Name="field._xpath" DataType="System.String"/>
+      <Column Name="field.__prefix" DataType="System.String"/>
+      <Column Name="_name" DataType="System.String"/>
+      <Column Name="_refer" DataType="System.String"/>
+      <Column Name="__prefix" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Categories" ReferenceName="NWConn.Categories" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="CategoryID" DataType="System.String"/>
+      <Column Name="CategoryName" DataType="System.String"/>
+      <Column Name="Description" DataType="System.String"/>
+      <Column Name="Picture" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Customers" ReferenceName="NWConn.Customers" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="CustomerID" DataType="System.String"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="ContactName" DataType="System.String"/>
+      <Column Name="ContactTitle" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Employees" ReferenceName="NWConn.Employees" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="EmployeeID" DataType="System.String"/>
+      <Column Name="LastName" DataType="System.String"/>
+      <Column Name="FirstName" DataType="System.String"/>
+      <Column Name="Title" DataType="System.String"/>
+      <Column Name="TitleOfCourtesy" DataType="System.String"/>
+      <Column Name="BirthDate" DataType="System.String"/>
+      <Column Name="HireDate" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="HomePhone" DataType="System.String"/>
+      <Column Name="Extension" DataType="System.String"/>
+      <Column Name="Photo" DataType="System.String"/>
+      <Column Name="Notes" DataType="System.String"/>
+      <Column Name="ReportsTo" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Order_x0020_Details" ReferenceName="NWConn.Order_x0020_Details" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="OrderID" DataType="System.String"/>
+      <Column Name="ProductID" DataType="System.String"/>
+      <Column Name="UnitPrice" DataType="System.String"/>
+      <Column Name="Quantity" DataType="System.String"/>
+      <Column Name="Discount" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Orders" ReferenceName="NWConn.Orders" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="OrderID" DataType="System.String"/>
+      <Column Name="CustomerID" DataType="System.String"/>
+      <Column Name="EmployeeID" DataType="System.String"/>
+      <Column Name="OrderDate" DataType="System.String"/>
+      <Column Name="RequiredDate" DataType="System.String"/>
+      <Column Name="ShippedDate" DataType="System.String"/>
+      <Column Name="ShipVia" DataType="System.String"/>
+      <Column Name="Freight" DataType="System.String"/>
+      <Column Name="ShipName" DataType="System.String"/>
+      <Column Name="ShipAddress" DataType="System.String"/>
+      <Column Name="ShipCity" DataType="System.String"/>
+      <Column Name="ShipPostalCode" DataType="System.String"/>
+      <Column Name="ShipCountry" DataType="System.String"/>
+      <Column Name="Latitude" DataType="System.String"/>
+      <Column Name="Longitude" DataType="System.String"/>
+      <Column Name="ShipRegion" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Products" ReferenceName="NWConn.Products" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="ProductID" DataType="System.String"/>
+      <Column Name="ProductName" DataType="System.String"/>
+      <Column Name="SupplierID" DataType="System.String"/>
+      <Column Name="CategoryID" DataType="System.String"/>
+      <Column Name="QuantityPerUnit" DataType="System.String"/>
+      <Column Name="UnitPrice" DataType="System.String"/>
+      <Column Name="UnitsInStock" DataType="System.String"/>
+      <Column Name="UnitsOnOrder" DataType="System.String"/>
+      <Column Name="ReorderLevel" DataType="System.String"/>
+      <Column Name="Discontinued" DataType="System.String"/>
+      <Column Name="EAN13" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Shippers" ReferenceName="NWConn.Shippers" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="ShipperID" DataType="System.String"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Suppliers" ReferenceName="NWConn.Suppliers" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="SupplierID" DataType="System.String"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="ContactName" DataType="System.String"/>
+      <Column Name="ContactTitle" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+      <Column Name="HomePage" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="MatrixDemo" ReferenceName="NWConn.MatrixDemo" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Year" DataType="System.String"/>
+      <Column Name="Month" DataType="System.String"/>
+      <Column Name="ItemsSold" DataType="System.String"/>
+      <Column Name="Revenue" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Unicode" ReferenceName="NWConn.Unicode" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="UnicodeName" DataType="System.String"/>
+      <Column Name="Text" DataType="System.String"/>
+      <Column Name="Rtl" DataType="System.String"/>
+      <Column Name="Active" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Root1" ReferenceName="Root" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element.complexType.choice._minOccurs" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element.complexType.choice._maxOccurs" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element.complexType.choice.__prefix" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element.complexType.__prefix" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element._name" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element._msdata:IsDataSet" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element._msdata:UseCurrentLocale" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.element.__prefix" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema._xmlns" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema._xmlns:xs" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema._xmlns:msdata" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema._id" DataType="System.String"/>
+      <Column Name="NWindDataSet.schema.__prefix" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="element1" ReferenceName="element" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="element_ID" DataType="System.String"/>
+      <Column Name="_name" DataType="System.String"/>
+      <Column Name="_type" DataType="System.String"/>
+      <Column Name="_minOccurs" DataType="System.String"/>
+      <Column Name="__prefix" DataType="System.String"/>
+      <Column Name="complexType.sequence.__prefix" DataType="System.String"/>
+      <Column Name="complexType.__prefix" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="unique1" ReferenceName="unique" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="selector._xpath" DataType="System.String"/>
+      <Column Name="selector.__prefix" DataType="System.String"/>
+      <Column Name="field._xpath" DataType="System.String"/>
+      <Column Name="field.__prefix" DataType="System.String"/>
+      <Column Name="_name" DataType="System.String"/>
+      <Column Name="__prefix" DataType="System.String"/>
+      <Column Name="_msdata:ConstraintName" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="keyref1" ReferenceName="keyref" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="selector._xpath" DataType="System.String"/>
+      <Column Name="selector.__prefix" DataType="System.String"/>
+      <Column Name="field._xpath" DataType="System.String"/>
+      <Column Name="field.__prefix" DataType="System.String"/>
+      <Column Name="_name" DataType="System.String"/>
+      <Column Name="_refer" DataType="System.String"/>
+      <Column Name="__prefix" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Categories1" ReferenceName="Categories" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="CategoryID" DataType="System.String"/>
+      <Column Name="CategoryName" DataType="System.String"/>
+      <Column Name="Description" DataType="System.String"/>
+      <Column Name="Picture" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Customers1" ReferenceName="Customers" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="CustomerID" DataType="System.String"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="ContactName" DataType="System.String"/>
+      <Column Name="ContactTitle" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Employees1" ReferenceName="Employees" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="EmployeeID" DataType="System.String"/>
+      <Column Name="LastName" DataType="System.String"/>
+      <Column Name="FirstName" DataType="System.String"/>
+      <Column Name="Title" DataType="System.String"/>
+      <Column Name="TitleOfCourtesy" DataType="System.String"/>
+      <Column Name="BirthDate" DataType="System.String"/>
+      <Column Name="HireDate" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="HomePhone" DataType="System.String"/>
+      <Column Name="Extension" DataType="System.String"/>
+      <Column Name="Photo" DataType="System.String"/>
+      <Column Name="Notes" DataType="System.String"/>
+      <Column Name="ReportsTo" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Order_x0020_Details1" ReferenceName="Order_x0020_Details" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="OrderID" DataType="System.String"/>
+      <Column Name="ProductID" DataType="System.String"/>
+      <Column Name="UnitPrice" DataType="System.String"/>
+      <Column Name="Quantity" DataType="System.String"/>
+      <Column Name="Discount" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Orders1" ReferenceName="Orders" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="OrderID" DataType="System.String"/>
+      <Column Name="CustomerID" DataType="System.String"/>
+      <Column Name="EmployeeID" DataType="System.String"/>
+      <Column Name="OrderDate" DataType="System.String"/>
+      <Column Name="RequiredDate" DataType="System.String"/>
+      <Column Name="ShippedDate" DataType="System.String"/>
+      <Column Name="ShipVia" DataType="System.String"/>
+      <Column Name="Freight" DataType="System.String"/>
+      <Column Name="ShipName" DataType="System.String"/>
+      <Column Name="ShipAddress" DataType="System.String"/>
+      <Column Name="ShipCity" DataType="System.String"/>
+      <Column Name="ShipPostalCode" DataType="System.String"/>
+      <Column Name="ShipCountry" DataType="System.String"/>
+      <Column Name="Latitude" DataType="System.String"/>
+      <Column Name="Longitude" DataType="System.String"/>
+      <Column Name="ShipRegion" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Products1" ReferenceName="Products" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="ProductID" DataType="System.String"/>
+      <Column Name="ProductName" DataType="System.String"/>
+      <Column Name="SupplierID" DataType="System.String"/>
+      <Column Name="CategoryID" DataType="System.String"/>
+      <Column Name="QuantityPerUnit" DataType="System.String"/>
+      <Column Name="UnitPrice" DataType="System.String"/>
+      <Column Name="UnitsInStock" DataType="System.String"/>
+      <Column Name="UnitsOnOrder" DataType="System.String"/>
+      <Column Name="ReorderLevel" DataType="System.String"/>
+      <Column Name="Discontinued" DataType="System.String"/>
+      <Column Name="EAN13" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Shippers1" ReferenceName="Shippers" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="ShipperID" DataType="System.String"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Suppliers1" ReferenceName="Suppliers" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="SupplierID" DataType="System.String"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="ContactName" DataType="System.String"/>
+      <Column Name="ContactTitle" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+      <Column Name="HomePage" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="MatrixDemo1" ReferenceName="MatrixDemo" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Year" DataType="System.String"/>
+      <Column Name="Month" DataType="System.String"/>
+      <Column Name="ItemsSold" DataType="System.String"/>
+      <Column Name="Revenue" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Unicode1" ReferenceName="Unicode" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="Root_ID" DataType="System.String"/>
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="UnicodeName" DataType="System.String"/>
+      <Column Name="Text" DataType="System.String"/>
+      <Column Name="Rtl" DataType="System.String"/>
+      <Column Name="Active" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="BandaTitulo" Width="718.2" Height="37.8" CanGrow="true">
+      <TextObject Name="TxtTitulo" Width="718.2" Height="37.8" Fill.Color="0, 255, 255" CanGrow="true" Text="NORTHWIND CATEGORIES (JSON)" HorzAlign="Center" VertAlign="Center" Font="Arial, 14pt"/>
+    </ReportTitleBand>
+    <DataBand Name="BandaDatos" Width="718.2" Height="37.8" CanGrow="true" DataSource="Categories">
+      <TextObject Name="F_ID" Width="113.4" Height="30.24" CanGrow="true" Text="[Categories.CategoryID]" Font="Arial, 12pt"/>
+      <TextObject Name="F_NAME" Left="113.4" Width="378" Height="30.24" CanGrow="true" Text="[Categories.CategoryName]" Font="Arial, 12pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

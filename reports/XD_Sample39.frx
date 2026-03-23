@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll&#13;&#10;E:\FastXDReport\Windows\FastReport.dll" ReportInfo.Created="03/19/2026 04:47:04" ReportInfo.Modified="03/19/2026 04:47:08" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using FastReport.Matrix;
+using XDFastReportBridge;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /* XD_START */
+    // EXPOSED DATA SOURCES: Products
+    public dynamic XD_Report { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic XD_Engine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic mMain { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic mEngine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic Products { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Products&quot;)); } }
+    /* XD_END */
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <SQLiteDataConnection Name="SQLite" ConnectionString="rijcmlq4BOLZ+jYWVC7rvRWlsBy6j409B5lktPKLULRPW/kj61U3deps/CETDejF+wbEnRO3y68m8uO9qjv/I0uRtpxOg==">
+      <TableDataSource Name="Products" DataType="System.Int32" Enabled="true" SelectCommand="SELECT * FROM Products WHERE UnitPrice &gt; 20 ORDER BY ProductName">
+        <Column Name="ProductID" DataType="System.Int64"/>
+        <Column Name="ProductName" DataType="System.String"/>
+        <Column Name="SupplierID" DataType="System.Int64"/>
+        <Column Name="CategoryID" DataType="System.Int64"/>
+        <Column Name="QuantityPerUnit" DataType="System.String"/>
+        <Column Name="UnitPrice" DataType="System.Double"/>
+        <Column Name="UnitsInStock" DataType="System.Int64"/>
+        <Column Name="UnitsOnOrder" DataType="System.Int64"/>
+        <Column Name="ReorderLevel" DataType="System.Int64"/>
+        <Column Name="Discontinued" DataType="System.String"/>
+        <Column Name="EAN13" DataType="System.String"/>
+      </TableDataSource>
+    </SQLiteDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="titulo" Width="718.2" Height="75.6" CanGrow="true">
+      <TextObject Name="mTit" Width="718.2" Height="37.8" Text="PRODUCT LIST (SQLITE - XML ORIGIN)" Font="Arial, 16pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="Cabecera" Width="718.2" Height="37.8" CanGrow="true">
+      <ShapeObject Name="FondoCab" Width="718.2" Height="30.24" Fill.Color="225, 225, 225"/>
+      <TextObject Name="hId" Left="7.56" Top="3.78" Width="75.6" Height="22.68" CanGrow="true" Text="ID" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="hName" Left="94.5" Top="3.78" Width="378" Height="22.68" CanGrow="true" Text="PRODUCT NAME" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="hPrice" Left="491.4" Top="3.78" Width="113.4" Height="22.68" CanGrow="true" Text="UNIT PRICE" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Width="718.2" Height="30.24" CanGrow="true" DataSource="Products">
+      <TextObject Name="mId" Left="7.56" Width="75.6" Height="30.24" CanGrow="true" Text="[Products.ProductID]" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="mName" Left="94.5" Width="378" Height="30.24" CanGrow="true" Text="[Products.ProductName]" VertAlign="Center" Font="Arial, 10pt" TextFill.Color="0, 0, 128"/>
+      <TextObject Name="mPrice" Left="491.4" Width="113.4" Height="30.24" CanGrow="true" Text="[Products.UnitPrice]" Format="Custom" Format.Format="c2" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt" TextFill.Color="128, 0, 0"/>
+    </DataBand>
+  </ReportPage>
+</Report>

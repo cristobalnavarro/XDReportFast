@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll&#13;&#10;E:\FastXDReport\Windows\FastReport.dll" ReportInfo.Created="03/19/2026 04:45:51" ReportInfo.Modified="03/19/2026 04:45:56" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using FastReport.Matrix;
+using XDFastReportBridge;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /* XD_START */
+    // EXPOSED DATA SOURCES: DataDBF
+    public dynamic XD_Report { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic XD_Engine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic mMain { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic mEngine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic DataDBF { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;DataDBF&quot;)); } }
+    /* XD_END */
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MySqlDataConnection Name="MySQL"/>
+    <TableDataSource Name="DataDBF" ReferenceName="DataDBF" DataType="System.Int32" Enabled="true">
+      <Column Name="first" DataType="System.String"/>
+      <Column Name="last" DataType="System.String"/>
+      <Column Name="street" DataType="System.String"/>
+      <Column Name="city" DataType="System.String"/>
+      <Column Name="state" DataType="System.String"/>
+      <Column Name="zip" DataType="System.String"/>
+      <Column Name="hiredate" DataType="System.DateTime"/>
+      <Column Name="married" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="age" DataType="System.Decimal"/>
+      <Column Name="salary" DataType="System.Decimal"/>
+      <Column Name="notes" DataType="System.String"/>
+      <Column Name="campol" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <DataBand Name="D" Width="718.2" Height="37.8" CanGrow="true" DataSource="DataDBF">
+      <TextObject Name="M1" Width="718.2" Height="22.68" CanGrow="true" Text="[DataDBF.First] [DataDBF.Last]" Font="Arial, 12pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll&#13;&#10;E:\FastXDReport\Windows\FastReport.dll" ReportInfo.Created="03/19/2026 04:47:26" ReportInfo.Modified="03/19/2026 04:47:29" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using FastReport.Matrix;
+using XDFastReportBridge;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /* XD_START */
+    // EXPOSED DATA SOURCES: DataMDB
+    public dynamic XD_Report { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic XD_Engine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic mMain { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic mEngine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic DataMDB { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;DataMDB&quot;)); } }
+    /* XD_END */
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MySqlDataConnection Name="MySQL" ConnectionString="rijcmlqLWGnpmTT/WNJu+YZ4tQrT1arfH7qZ0GERuvOW4vWlsDrCYIkNRqcsVLGkZWvzJcFuWqVNn1G1N2T+QHWIPemix5XqU7FNfnGwNSL/ZWvZZqSTcJou4YsXLBaguChlKh/Otv54qaNhGNgBzb5QIhjDtSeChL5Qez7j6W8m1bjZZo="/>
+    <TableDataSource Name="DataMDB" ReferenceName="DataMDB" DataType="System.Int32" Enabled="true">
+      <Column Name="ID" DataType="System.Int32"/>
+      <Column Name="FIRST" DataType="System.String"/>
+      <Column Name="LAST" DataType="System.String"/>
+      <Column Name="STREET" DataType="System.String"/>
+      <Column Name="CITY" DataType="System.String"/>
+      <Column Name="STATE" DataType="System.String"/>
+      <Column Name="ZIP" DataType="System.String"/>
+      <Column Name="HIREDATE" DataType="System.DateTime"/>
+      <Column Name="MARRIED" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="AGE" DataType="System.Byte"/>
+      <Column Name="SALARY" DataType="System.Decimal"/>
+      <Column Name="NOTES" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="T" Width="718.2" Height="56.7" CanGrow="true">
+      <TextObject Name="Title" Width="718.2" Height="37.8" Text="REPORTE ACCESS OLEDB (MDB)" Font="Arial, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PH" Width="718.2" Height="30.24" CanGrow="true">
+      <TextObject Name="H1" Width="151.2" Height="26.46" Text="ID" Font="Arial, 10pt"/>
+      <TextObject Name="H2" Left="151.2" Width="378" Height="26.46" Text="NOMBRE" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="D" Width="718.2" Height="26.46" CanGrow="true" DataSource="DataMDB">
+      <TextObject Name="M1" Width="151.2" Height="22.68" CanGrow="true" Text="[DataMDB.ID]" Font="Arial, 12pt"/>
+      <TextObject Name="M2" Left="151.2" Width="378" Height="22.68" CanGrow="true" Text="[DataMDB.First] [DataMDB.Last]" Font="Arial, 12pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

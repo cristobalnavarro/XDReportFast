@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll&#13;&#10;E:\FastXDReport\Windows\FastReport.dll" ReportInfo.Created="03/19/2026 04:47:50" ReportInfo.Modified="03/19/2026 04:47:53" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using FastReport.Matrix;
+using XDFastReportBridge;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /* XD_START */
+    // EXPOSED DATA SOURCES: 
+    public dynamic XD_Report { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic XD_Engine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic mEngine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    /* XD_END */
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MySqlDataConnection Name="MySQL" ConnectionString="rijcmlqLWGnpmTT/WNJu+YZ4tQrT1arfH7qZ0GERuvOW4vWlsDrCYIkNRqcsVLGkZWvzJcFuWqVNn1G1N2T+QHWIPemix5XqU7FNfnGwNSL/ZWvZZqSTcJou4YsXLBaguChlKh/Otv54qaNhGNgBzb5QIhjDuRuXx2an2Ple+H5Eac5alM="/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="Title" Width="718.2" Height="113.4" CanGrow="true">
+      <TextObject Name="mMain" Left="37.8" Top="18.9" Width="378" Height="56.7" Bookmark="&quot;Main Title&quot;" CanGrow="true" Text="INTERACTIVE REPORT" VertAlign="Center" Font="Impact, 20pt"/>
+    </ReportTitleBand>
+    <DataBand Name="MainData" Width="718.2" Height="151.2" CanGrow="true" DataSource="">
+      <TextObject Name="MyHtml" Left="18.9" Top="83.16" Width="378" Height="56.7" Text="&lt;b&gt;Modern HTML Object:&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#FF0000&quot;&gt;Red Text&lt;/font&gt; and &lt;i&gt;Italic&lt;/i&gt;" Font="Arial, 10pt" TextRenderType="HtmlTags"/>
+      <TextObject Name="lblCheck" Left="415.8" Top="18.9" Width="113.4" Height="18.9" CanGrow="true" Text="Status:" Font="Arial, 8pt" TextFill.Color="128, 128, 128"/>
+      <CheckBoxObject Name="MyCheck" Left="415.8" Top="45.36" Width="37.8" Height="37.8"/>
+      <DataFooterBand Name="SubDetail" Width="718.2" Height="75.6" CanGrow="true">
+        <TextObject Name="mDrill" Left="37.8" Top="18.9" Width="378" Height="37.8" Hyperlink.Kind="DetailReport" Hyperlink.DetailReportName="..\XD_Sample02.frx" Hyperlink.ReportParameter="[Customer.ID]" Bookmark="&quot;DrillDown Section&quot;" CanGrow="true" Text="Click here for Details (DrillDown)" Font="Arial, 10pt" TextFill.Color="0, 0, 128"/>
+      </DataFooterBand>
+    </DataBand>
+  </ReportPage>
+</Report>

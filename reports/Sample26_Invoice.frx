@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll&#13;&#10;E:\FastXDReport\Windows\FastReport.dll" ReportInfo.Created="03/19/2026 04:44:56" ReportInfo.Modified="03/19/2026 04:44:56" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using FastReport.Matrix;
+using XDFastReportBridge;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /* XD_START */
+    // EXPOSED DATA SOURCES: Invoices, Invoices1, Lines, Lines1
+    public dynamic XD_Report { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic XD_Engine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic mMain { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic mEngine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic Invoices { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Invoices&quot;)); } }
+    public dynamic Invoices1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Invoices1&quot;)); } }
+    public dynamic Lines { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Lines&quot;)); } }
+    public dynamic Lines1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Lines1&quot;)); } }
+    /* XD_END */
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MySqlDataConnection Name="MySQL"/>
+    <TableDataSource Name="Invoices" ReferenceName="Invoices.Invoices" DataType="System.Int32" Enabled="true">
+      <Column Name="InvoiceID" DataType="System.Int64"/>
+      <Column Name="Date" DataType="System.String"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="CompanyAddress" DataType="System.String"/>
+      <Column Name="CustomerName" DataType="System.String"/>
+      <Column Name="CustomerAddress" DataType="System.String"/>
+      <Column Name="BaseImponible" DataType="System.Double"/>
+      <Column Name="PctIVA" DataType="System.Int64"/>
+      <Column Name="ImpIVA" DataType="System.Double"/>
+      <Column Name="PctRE" DataType="System.Double"/>
+      <Column Name="ImpRE" DataType="System.Double"/>
+      <Column Name="PctRet" DataType="System.Int64"/>
+      <Column Name="ImpRet" DataType="System.Double"/>
+      <Column Name="TotalFactura" DataType="System.Double"/>
+    </TableDataSource>
+    <TableDataSource Name="Invoices1" ReferenceName="Invoices" DataType="System.Int32" Enabled="true">
+      <Column Name="InvoiceID" DataType="System.Int64"/>
+      <Column Name="Date" DataType="System.String"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="CompanyAddress" DataType="System.String"/>
+      <Column Name="CustomerName" DataType="System.String"/>
+      <Column Name="CustomerAddress" DataType="System.String"/>
+      <Column Name="BaseImponible" DataType="System.Double"/>
+      <Column Name="PctIVA" DataType="System.Int64"/>
+      <Column Name="ImpIVA" DataType="System.Double"/>
+      <Column Name="PctRE" DataType="System.Double"/>
+      <Column Name="ImpRE" DataType="System.Double"/>
+      <Column Name="PctRet" DataType="System.Int64"/>
+      <Column Name="ImpRet" DataType="System.Double"/>
+      <Column Name="TotalFactura" DataType="System.Double"/>
+    </TableDataSource>
+    <TableDataSource Name="Lines" ReferenceName="Lines.Lines" DataType="System.Int32" Enabled="true">
+      <Column Name="InvoiceID" DataType="System.Int64"/>
+      <Column Name="ItemDescription" DataType="System.String"/>
+      <Column Name="Quantity" DataType="System.Int64"/>
+      <Column Name="UnitPrice" DataType="System.Double"/>
+      <Column Name="LineTotal" DataType="System.Double"/>
+    </TableDataSource>
+    <TableDataSource Name="Lines1" ReferenceName="Lines" DataType="System.Int32" Enabled="true">
+      <Column Name="InvoiceID" DataType="System.Int64"/>
+      <Column Name="ItemDescription" DataType="System.String"/>
+      <Column Name="Quantity" DataType="System.Int64"/>
+      <Column Name="UnitPrice" DataType="System.Double"/>
+      <Column Name="LineTotal" DataType="System.Double"/>
+    </TableDataSource>
+    <Relation Name="InvLinesRel" ParentDataSource="Invoices" ChildDataSource="Lines" ParentColumns="InvoiceID" ChildColumns="InvoiceID" Enabled="true"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="TitleBand" Width="718.2" Height="56.7" CanGrow="true">
+      <TextObject Name="TitleTxt" Top="15.12" Width="793.8" Height="37.8" Text="INVOICE" HorzAlign="Center" Font="Arial, 10pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHdrBand" Width="718.2" Height="37.8" CanGrow="true">
+      <TextObject Name="PgHdrTxt" Top="7.56" Width="793.8" Height="22.68" Text="INVOICE REPORT  (Sample 26 - Code &amp; JSON)" HorzAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="PageNumTxt" Left="680.4" Top="7.56" Width="75.6" Height="22.68" Text="Page [Page#]" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="MasterBand" Width="718.2" Height="0.38" CanGrow="true" StartNewPage="true" DataSource="Invoices">
+      <DataBand Name="DetailBand" Width="718.2" Height="30.24" CanGrow="true" DataSource="Lines" Relation="InvLinesRel">
+        <TextObject Name="ItmTxt" Left="37.8" Top="3.78" Width="378" Height="22.68" Text="[Lines.ItemDescription]" Font="Arial, 10pt"/>
+        <TextObject Name="QtyTxt" Left="434.7" Top="3.78" Width="75.6" Height="22.68" Text="[Lines.Quantity]" HorzAlign="Right" Font="Arial, 10pt"/>
+        <TextObject Name="PrcTxt" Left="529.2" Top="3.78" Width="113.4" Height="22.68" Text="[Lines.UnitPrice]" HorzAlign="Right" Font="Arial, 10pt"/>
+        <TextObject Name="LineTotTxt" Left="642.6" Top="3.78" Width="94.5" Height="22.68" Text="[Lines.LineTotal]" HorzAlign="Right" Font="Arial, 10pt"/>
+        <DataHeaderBand Name="LinesHdrBand" Width="718.2" Height="181.44" CanGrow="true" RepeatOnEveryPage="true">
+          <TextObject Name="CompanyTxt" Left="37.8" Top="7.56" Width="340.2" Height="22.68" Text="[Invoices.CompanyName]" Font="Arial, 10pt"/>
+          <TextObject Name="CompanyAddrTxt" Left="37.8" Top="34.02" Width="340.2" Height="18.9" Text="[Invoices.CompanyAddress]" Font="Arial, 10pt"/>
+          <TextObject Name="InvNumLbl" Left="453.6" Top="7.56" Width="113.4" Height="18.9" Text="Invoice #:" Font="Arial, 10pt"/>
+          <TextObject Name="InvNumTxt" Left="585.9" Top="7.56" Width="151.2" Height="18.9" Text="[Invoices.InvoiceID]" Font="Arial, 10pt"/>
+          <TextObject Name="InvDateLbl" Left="453.6" Top="34.02" Width="113.4" Height="18.9" Text="Date:" Font="Arial, 10pt"/>
+          <TextObject Name="InvDateTxt" Left="585.9" Top="34.02" Width="151.2" Height="18.9" Text="[Invoices.Date]" Font="Arial, 10pt"/>
+          <TextObject Name="BillToLbl" Left="37.8" Top="68.04" Width="113.4" Height="18.9" Text="BILL TO:" Font="Arial, 10pt"/>
+          <TextObject Name="CustomerTxt" Left="37.8" Top="90.72" Width="340.2" Height="18.9" Text="[Invoices.CustomerName]" Font="Arial, 10pt"/>
+          <TextObject Name="CustomerAddrTxt" Left="37.8" Top="113.4" Width="340.2" Height="18.9" Text="[Invoices.CustomerAddress]" Font="Arial, 10pt"/>
+          <LineObject Name="LineHdrTop" Left="37.8" Top="143.64" Width="718.2"/>
+          <TextObject Name="HdrDesc" Left="37.8" Top="151.2" Width="378" Height="18.9" Text="Description" Font="Arial, 10pt"/>
+          <TextObject Name="HdrQty" Left="434.7" Top="151.2" Width="75.6" Height="18.9" Text="Qty" HorzAlign="Right" Font="Arial, 10pt"/>
+          <TextObject Name="HdrUnit" Left="529.2" Top="151.2" Width="113.4" Height="18.9" Text="Unit Price" HorzAlign="Right" Font="Arial, 10pt"/>
+          <TextObject Name="HdrTot" Left="642.6" Top="151.2" Width="94.5" Height="18.9" Text="Total" HorzAlign="Right" Font="Arial, 10pt"/>
+          <LineObject Name="LineHdrBot" Left="37.8" Top="173.88" Width="718.2"/>
+        </DataHeaderBand>
+        <DataFooterBand Name="LinesFooterBand" Width="718.2" Height="158.76" CanGrow="true">
+          <LineObject Name="LineFtr" Left="37.8" Width="718.2"/>
+          <TextObject Name="BaseLbl" Left="453.6" Top="11.34" Width="151.2" Height="18.9" Text="Base Imponible:" Font="Arial, 10pt"/>
+          <TextObject Name="BaseTxt" Left="623.7" Top="11.34" Width="113.4" Height="18.9" Text="[Invoices.BaseImponible]" HorzAlign="Right" Font="Arial, 10pt"/>
+          <TextObject Name="IvaLbl" Left="453.6" Top="34.02" Width="151.2" Height="18.9" Text="IVA ([Invoices.PctIVA]%):" Font="Arial, 10pt"/>
+          <TextObject Name="IvaTxt" Left="623.7" Top="34.02" Width="113.4" Height="18.9" Text="[Invoices.ImpIVA]" HorzAlign="Right" Font="Arial, 10pt"/>
+          <TextObject Name="RELbl" Left="453.6" Top="56.7" Width="151.2" Height="18.9" Text="R.Equiv. ([Invoices.PctRE]%):" Font="Arial, 10pt"/>
+          <TextObject Name="RETxt" Left="623.7" Top="56.7" Width="113.4" Height="18.9" Text="[Invoices.ImpRE]" HorzAlign="Right" Font="Arial, 10pt"/>
+          <TextObject Name="RetLbl" Left="453.6" Top="79.38" Width="151.2" Height="18.9" Text="Retenci\xf3n ([Invoices.PctRet]%):" Font="Arial, 10pt"/>
+          <TextObject Name="RetTxt" Left="623.7" Top="79.38" Width="113.4" Height="18.9" Text="[Invoices.ImpRet]" HorzAlign="Right" Font="Arial, 10pt"/>
+          <LineObject Name="LineTot" Left="37.8" Top="105.84" Width="718.2"/>
+          <TextObject Name="TotLbl" Left="453.6" Top="113.4" Width="151.2" Height="26.46" Text="TOTAL FACTURA:" Font="Arial, 10pt"/>
+          <TextObject Name="TotTxt" Left="623.7" Top="113.4" Width="113.4" Height="26.46" Text="[Invoices.TotalFactura]" HorzAlign="Right" Font="Arial, 10pt"/>
+        </DataFooterBand>
+      </DataBand>
+    </DataBand>
+  </ReportPage>
+</Report>

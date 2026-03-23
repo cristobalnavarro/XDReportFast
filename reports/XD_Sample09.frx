@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll" ReportInfo.Created="03/11/2026 20:33:48" ReportInfo.Modified="03/11/2026 20:33:48" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using XDFastReportBridge;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    public dynamic XD_Report { get { return Report; } }
+    public dynamic XD_Engine { get { return Engine; } }
+    public dynamic mMain { get { return Report; } }
+    public dynamic mEngine { get { return Engine; } }
+
+  }
+}
+</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" Watermark.Enabled="true" Watermark.Text="V E R S I O N   D E M O&#13;&#10;X D E V F O R Y O U" Watermark.Font="Arial, 40pt, style=Bold" Watermark.TextFill.Color="120, 169, 169, 169">
+    <ReportTitleBand Name="BandaTit" Width="718.2" Height="37.8" CanGrow="true">
+      <TextObject Name="MemWeb" Width="718.2" Height="37.8" Fill.Color="0, 128, 0" CanGrow="true" Text="INFORME INTERACTIVO HTML" Font="Arial, 12pt" TextFill.Color="255, 255, 255"/>
+      <TextObject Name="LnkDoc" Left="75.6" Top="45.36" Width="264.6" Height="18.9" Hyperlink.Value="https://fastreports.github.io/FastReport.Documentation/ClassReference/api/FastReport.html" CanGrow="true" Text="VER DOCUMENTACION" HorzAlign="Right" Font="Arial, 12pt, style=Underline" TextFill.Color="255, 0, 0"/>
+      <TextObject Name="Sep" Left="340.2" Top="45.36" Width="37.8" Height="18.9" CanGrow="true" Text="|" HorzAlign="Center" Font="Arial, 12pt"/>
+      <TextObject Name="LnkGit" Left="378" Top="45.36" Width="264.6" Height="18.9" Hyperlink.Value="https://github.com/FastReports/FastReport" CanGrow="true" Text="CODIGO FUENTE" Font="Arial, 12pt, style=Underline" TextFill.Color="255, 0, 0"/>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

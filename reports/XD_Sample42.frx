@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll&#13;&#10;E:\FastXDReport\Windows\FastReport.dll" ReportInfo.Created="03/20/2026 03:25:10" ReportInfo.Modified="03/20/2026 03:25:20" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using FastReport.Matrix;
+using XDFastReportBridge;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /* XD_START */
+    // EXPOSED DATA SOURCES: Categories, Customers, Employees, Order_Details, Orders, Products, Shippers, Suppliers, MatrixDemo, Unicode, Categories1, Customers1, Employees1, Order_Details1, Orders1, Products1, Shippers1, Suppliers1, MatrixDemo1, Unicode1
+    public dynamic XD_Report { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic XD_Engine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic mMain { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic mEngine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public string WA_SETCODEJS(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;JS&quot;, s); }
+    public string WA_SETCODEPY(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;PY&quot;, s); }
+    public string WA_SETCODEPHP(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;PHP&quot;, s); }
+    public string WA_SETCODEHB(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;HARBOUR&quot;, s); }
+    public string WA_SETCODECUSTOM(string lang, string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, lang, s); }
+    public string WA_SETCODE(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;HARBOUR&quot;, s); }
+    public string WA_BLOCKHB(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;HARBOUR&quot;, s); }
+    public string WA_BLOCKJS(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;JS&quot;, s); }
+    public string WA_BLOCKPY(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;PY&quot;, s); }
+    public string WA_BLOCK(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;HARBOUR&quot;, s); }
+    public dynamic Categories { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Categories&quot;)); } }
+    public dynamic Customers { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Customers&quot;)); } }
+    public dynamic Employees { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Employees&quot;)); } }
+    public dynamic Order_Details { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Order_Details&quot;)); } }
+    public dynamic Orders { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Orders&quot;)); } }
+    public dynamic Products { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Products&quot;)); } }
+    public dynamic Shippers { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Shippers&quot;)); } }
+    public dynamic Suppliers { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Suppliers&quot;)); } }
+    public dynamic MatrixDemo { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;MatrixDemo&quot;)); } }
+    public dynamic Unicode { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Unicode&quot;)); } }
+    public dynamic Categories1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Categories1&quot;)); } }
+    public dynamic Customers1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Customers1&quot;)); } }
+    public dynamic Employees1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Employees1&quot;)); } }
+    public dynamic Order_Details1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Order_Details1&quot;)); } }
+    public dynamic Orders1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Orders1&quot;)); } }
+    public dynamic Products1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Products1&quot;)); } }
+    public dynamic Shippers1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Shippers1&quot;)); } }
+    public dynamic Suppliers1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Suppliers1&quot;)); } }
+    public dynamic MatrixDemo1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;MatrixDemo1&quot;)); } }
+    public dynamic Unicode1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Unicode1&quot;)); } }
+    /* XD_END */
+
+    
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <TableDataSource Name="Categories" ReferenceName="Northwind.Categories" DataType="System.Int32" Enabled="true">
+      <Column Name="CategoryID" DataType="System.Int32"/>
+      <Column Name="CategoryName" DataType="System.String"/>
+      <Column Name="Description" DataType="System.String"/>
+      <Column Name="Picture" DataType="System.Byte[]" BindableControl="Picture"/>
+    </TableDataSource>
+    <TableDataSource Name="Customers" ReferenceName="Northwind.Customers" DataType="System.Int32" Enabled="true">
+      <Column Name="CustomerID" DataType="System.String"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="ContactName" DataType="System.String"/>
+      <Column Name="ContactTitle" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Employees" ReferenceName="Northwind.Employees" DataType="System.Int32" Enabled="true">
+      <Column Name="EmployeeID" DataType="System.Int32"/>
+      <Column Name="LastName" DataType="System.String"/>
+      <Column Name="FirstName" DataType="System.String"/>
+      <Column Name="Title" DataType="System.String"/>
+      <Column Name="TitleOfCourtesy" DataType="System.String"/>
+      <Column Name="BirthDate" DataType="System.DateTime"/>
+      <Column Name="HireDate" DataType="System.DateTime"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="HomePhone" DataType="System.String"/>
+      <Column Name="Extension" DataType="System.String"/>
+      <Column Name="Photo" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="Notes" DataType="System.String"/>
+      <Column Name="ReportsTo" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="Order_Details" ReferenceName="Northwind.Order_Details" DataType="System.Int32" Enabled="true">
+      <Column Name="OrderID" DataType="System.Int32"/>
+      <Column Name="ProductID" DataType="System.Int32"/>
+      <Column Name="UnitPrice" DataType="System.Decimal"/>
+      <Column Name="Quantity" DataType="System.Int16"/>
+      <Column Name="Discount" DataType="System.Single"/>
+    </TableDataSource>
+    <TableDataSource Name="Orders" ReferenceName="Northwind.Orders" DataType="System.Int32" Enabled="true">
+      <Column Name="OrderID" DataType="System.Int32"/>
+      <Column Name="CustomerID" DataType="System.String"/>
+      <Column Name="EmployeeID" DataType="System.Int32"/>
+      <Column Name="OrderDate" DataType="System.DateTime"/>
+      <Column Name="RequiredDate" DataType="System.DateTime"/>
+      <Column Name="ShippedDate" DataType="System.DateTime"/>
+      <Column Name="ShipVia" DataType="System.Int32"/>
+      <Column Name="Freight" DataType="System.Decimal"/>
+      <Column Name="ShipName" DataType="System.String"/>
+      <Column Name="ShipAddress" DataType="System.String"/>
+      <Column Name="ShipCity" DataType="System.String"/>
+      <Column Name="ShipRegion" DataType="System.String"/>
+      <Column Name="ShipPostalCode" DataType="System.String"/>
+      <Column Name="ShipCountry" DataType="System.String"/>
+      <Column Name="Latitude" DataType="System.Double"/>
+      <Column Name="Longitude" DataType="System.Double"/>
+    </TableDataSource>
+    <TableDataSource Name="Products" ReferenceName="Northwind.Products" DataType="System.Int32" Enabled="true">
+      <Column Name="ProductID" DataType="System.Int32"/>
+      <Column Name="ProductName" DataType="System.String"/>
+      <Column Name="SupplierID" DataType="System.Int32"/>
+      <Column Name="CategoryID" DataType="System.Int32"/>
+      <Column Name="QuantityPerUnit" DataType="System.String"/>
+      <Column Name="UnitPrice" DataType="System.Decimal"/>
+      <Column Name="UnitsInStock" DataType="System.Int16"/>
+      <Column Name="UnitsOnOrder" DataType="System.Int16"/>
+      <Column Name="ReorderLevel" DataType="System.Int16"/>
+      <Column Name="Discontinued" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="EAN13" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Shippers" ReferenceName="Northwind.Shippers" DataType="System.Int32" Enabled="true">
+      <Column Name="ShipperID" DataType="System.Int32"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Suppliers" ReferenceName="Northwind.Suppliers" DataType="System.Int32" Enabled="true">
+      <Column Name="SupplierID" DataType="System.Int32"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="ContactName" DataType="System.String"/>
+      <Column Name="ContactTitle" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+      <Column Name="HomePage" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="MatrixDemo" ReferenceName="Northwind.MatrixDemo" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Year" DataType="System.Int32"/>
+      <Column Name="Month" DataType="System.Int32"/>
+      <Column Name="ItemsSold" DataType="System.Int32"/>
+      <Column Name="Revenue" DataType="System.Decimal"/>
+    </TableDataSource>
+    <TableDataSource Name="Unicode" ReferenceName="Northwind.Unicode" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="UnicodeName" DataType="System.String"/>
+      <Column Name="Text" DataType="System.String"/>
+      <Column Name="Rtl" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="Active" DataType="System.Boolean" BindableControl="CheckBox"/>
+    </TableDataSource>
+    <TableDataSource Name="Categories1" ReferenceName="Categories" DataType="System.Int32" Enabled="true">
+      <Column Name="CategoryID" DataType="System.Int32"/>
+      <Column Name="CategoryName" DataType="System.String"/>
+      <Column Name="Description" DataType="System.String"/>
+      <Column Name="Picture" DataType="System.Byte[]" BindableControl="Picture"/>
+    </TableDataSource>
+    <TableDataSource Name="Customers1" ReferenceName="Customers" DataType="System.Int32" Enabled="true">
+      <Column Name="CustomerID" DataType="System.String"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="ContactName" DataType="System.String"/>
+      <Column Name="ContactTitle" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Employees1" ReferenceName="Employees" DataType="System.Int32" Enabled="true">
+      <Column Name="EmployeeID" DataType="System.Int32"/>
+      <Column Name="LastName" DataType="System.String"/>
+      <Column Name="FirstName" DataType="System.String"/>
+      <Column Name="Title" DataType="System.String"/>
+      <Column Name="TitleOfCourtesy" DataType="System.String"/>
+      <Column Name="BirthDate" DataType="System.DateTime"/>
+      <Column Name="HireDate" DataType="System.DateTime"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="HomePhone" DataType="System.String"/>
+      <Column Name="Extension" DataType="System.String"/>
+      <Column Name="Photo" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="Notes" DataType="System.String"/>
+      <Column Name="ReportsTo" DataType="System.Int32"/>
+    </TableDataSource>
+    <TableDataSource Name="Order_Details1" ReferenceName="Order_Details" DataType="System.Int32" Enabled="true">
+      <Column Name="OrderID" DataType="System.Int32"/>
+      <Column Name="ProductID" DataType="System.Int32"/>
+      <Column Name="UnitPrice" DataType="System.Decimal"/>
+      <Column Name="Quantity" DataType="System.Int16"/>
+      <Column Name="Discount" DataType="System.Single"/>
+    </TableDataSource>
+    <TableDataSource Name="Orders1" ReferenceName="Orders" DataType="System.Int32" Enabled="true">
+      <Column Name="OrderID" DataType="System.Int32"/>
+      <Column Name="CustomerID" DataType="System.String"/>
+      <Column Name="EmployeeID" DataType="System.Int32"/>
+      <Column Name="OrderDate" DataType="System.DateTime"/>
+      <Column Name="RequiredDate" DataType="System.DateTime"/>
+      <Column Name="ShippedDate" DataType="System.DateTime"/>
+      <Column Name="ShipVia" DataType="System.Int32"/>
+      <Column Name="Freight" DataType="System.Decimal"/>
+      <Column Name="ShipName" DataType="System.String"/>
+      <Column Name="ShipAddress" DataType="System.String"/>
+      <Column Name="ShipCity" DataType="System.String"/>
+      <Column Name="ShipRegion" DataType="System.String"/>
+      <Column Name="ShipPostalCode" DataType="System.String"/>
+      <Column Name="ShipCountry" DataType="System.String"/>
+      <Column Name="Latitude" DataType="System.Double"/>
+      <Column Name="Longitude" DataType="System.Double"/>
+    </TableDataSource>
+    <TableDataSource Name="Products1" ReferenceName="Products" DataType="System.Int32" Enabled="true">
+      <Column Name="ProductID" DataType="System.Int32"/>
+      <Column Name="ProductName" DataType="System.String"/>
+      <Column Name="SupplierID" DataType="System.Int32"/>
+      <Column Name="CategoryID" DataType="System.Int32"/>
+      <Column Name="QuantityPerUnit" DataType="System.String"/>
+      <Column Name="UnitPrice" DataType="System.Decimal"/>
+      <Column Name="UnitsInStock" DataType="System.Int16"/>
+      <Column Name="UnitsOnOrder" DataType="System.Int16"/>
+      <Column Name="ReorderLevel" DataType="System.Int16"/>
+      <Column Name="Discontinued" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="EAN13" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Shippers1" ReferenceName="Shippers" DataType="System.Int32" Enabled="true">
+      <Column Name="ShipperID" DataType="System.Int32"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Suppliers1" ReferenceName="Suppliers" DataType="System.Int32" Enabled="true">
+      <Column Name="SupplierID" DataType="System.Int32"/>
+      <Column Name="CompanyName" DataType="System.String"/>
+      <Column Name="ContactName" DataType="System.String"/>
+      <Column Name="ContactTitle" DataType="System.String"/>
+      <Column Name="Address" DataType="System.String"/>
+      <Column Name="City" DataType="System.String"/>
+      <Column Name="Region" DataType="System.String"/>
+      <Column Name="PostalCode" DataType="System.String"/>
+      <Column Name="Country" DataType="System.String"/>
+      <Column Name="Phone" DataType="System.String"/>
+      <Column Name="Fax" DataType="System.String"/>
+      <Column Name="HomePage" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="MatrixDemo1" ReferenceName="MatrixDemo" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="Year" DataType="System.Int32"/>
+      <Column Name="Month" DataType="System.Int32"/>
+      <Column Name="ItemsSold" DataType="System.Int32"/>
+      <Column Name="Revenue" DataType="System.Decimal"/>
+    </TableDataSource>
+    <TableDataSource Name="Unicode1" ReferenceName="Unicode" DataType="System.Int32" Enabled="true">
+      <Column Name="Name" DataType="System.String"/>
+      <Column Name="UnicodeName" DataType="System.String"/>
+      <Column Name="Text" DataType="System.String"/>
+      <Column Name="Rtl" DataType="System.Boolean" BindableControl="CheckBox"/>
+      <Column Name="Active" DataType="System.Boolean" BindableControl="CheckBox"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Enabled="true" Watermark.Text="V E R S I O N   D E M O&#13;&#10;X D E V F O R Y O U" Watermark.Font="Arial, 40pt, style=Bold" Watermark.TextFill.Color="120, 169, 169, 169">
+    <ReportTitleBand Name="Header" Width="718.2" Height="94.5" CanGrow="true">
+      <PictureObject Name="LogoSVG" Left="7.56" Top="7.56" Width="75.6" Height="75.6" ImageLocation="E:\FastXDReport\Windows\img\sample.svg"/>
+      <TextObject Name="mTitle" Left="94.5" Top="18.9" Width="567" Height="37.8" CanGrow="true" Text="ADVANCED OBJECTS DEMO" VertAlign="Center" Font="Arial, 16pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PagHeader" Width="718.2" Height="56.7" CanGrow="true">
+      <TextObject Name="lblSpark" Left="7.56" Top="7.56" Width="151.2" Height="18.9" CanGrow="true" Text="Trend Sparkline:" Font="Arial, 8pt" TextFill.Color="128, 128, 128"/>
+    </PageHeaderBand>
+    <DataBand Name="Data" Width="718.2" Height="189" CanGrow="true" DataSource="">
+      <TextObject Name="lblTable" Left="7.56" Top="7.56" Width="151.2" Height="18.9" CanGrow="true" Text="Programmatic Table:" Font="Arial, 10pt" TextFill.Color="0, 0, 128"/>
+      <TableObject Name="MyTable" Left="7.56" Top="37.8" Width="604.8" Height="113.4">
+        <TableColumn Name="Column1" Width="201.6"/>
+        <TableColumn Name="Column2" Width="201.6"/>
+        <TableColumn Name="Column3" Width="201.6"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Fill.Color="0, 0, 128" Text="ID" Font="Arial, 10pt" TextFill.Color="255, 255, 255"/>
+          <TableCell Name="Cell2" Fill.Color="0, 0, 128" Text="Description" Font="Arial, 10pt" TextFill.Color="255, 255, 255"/>
+          <TableCell Name="Cell3" Fill.Color="0, 0, 128" Text="Price" Font="Arial, 10pt" TextFill.Color="255, 255, 255"/>
+        </TableRow>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell4" Text="P001" Font="Arial, 10pt"/>
+          <TableCell Name="Cell5" Text="Product A" Font="Arial, 10pt"/>
+          <TableCell Name="Cell6" Text="150.00" Font="Arial, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell7" Text="P002" Font="Arial, 10pt"/>
+          <TableCell Name="Cell8" Text="Product B" Font="Arial, 10pt"/>
+          <TableCell Name="Cell9" Text="230.50" Font="Arial, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell10" Fill.Color="255, 255, 0" Text="TOTAL" HorzAlign="Right" VertAlign="Center" Font="Arial, 10pt"/>
+          <TableCell Name="Cell11" Font="Arial, 10pt"/>
+          <TableCell Name="Cell12" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+      <DataFooterBand Name="Footer" Width="718.2" Height="226.8">
+        <TextObject Name="lblMat" Left="7.56" Top="7.56" Width="151.2" Height="18.9" CanGrow="true" Text="Dynamic Pivot Matrix:" Font="Arial, 10pt" TextFill.Color="128, 0, 128"/>
+        <MatrixObject Name="MyMatrix" Left="7.56" Top="37.8" Width="378" Height="151.2" FixedRows="1" FixedColumns="1" DataSource="Orders" Style="Gray">
+          <MatrixColumns>
+            <Header Expression="Orders.CustomerID"/>
+          </MatrixColumns>
+          <MatrixRows>
+            <Header Expression="Orders.ShipCountry"/>
+          </MatrixRows>
+          <MatrixCells>
+            <Cell Expression="Orders.Freight" Function="None"/>
+          </MatrixCells>
+          <TableColumn Name="Column4"/>
+          <TableColumn Name="Column5"/>
+          <TableColumn Name="Column6"/>
+          <TableRow Name="Row5">
+            <TableCell Name="Cell13" Border.Lines="All" Border.Color="White" Fill.Color="Gainsboro" CanGrow="true" Text="ShipCountry" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 8.25pt"/>
+            <TableCell Name="Cell14" Border.Lines="All" Border.Color="White" Fill.Color="Gainsboro" CanGrow="true" Text="WOLZA" AllowExpressions="false" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 8.25pt"/>
+            <TableCell Name="Cell15" Border.Lines="All" Border.Color="White" Fill.Color="Gainsboro" CanGrow="true" Text="Total" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 8.25pt"/>
+          </TableRow>
+          <TableRow Name="Row6">
+            <TableCell Name="Cell16" Border.Lines="All" Border.Color="White" Fill.Color="Gainsboro" CanGrow="true" Text="Venezuela" AllowExpressions="false" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 8.25pt"/>
+            <TableCell Name="Cell17" Border.Lines="All" Border.Color="White" Fill.Color="WhiteSmoke" CanGrow="true" AllowExpressions="false" HorzAlign="Right" VertAlign="Center" Font="Tahoma, 8.25pt"/>
+            <TableCell Name="Cell18" Border.Lines="All" Border.Color="White" Fill.Color="WhiteSmoke" CanGrow="true" Text="66.29" HorzAlign="Right" VertAlign="Center" Font="Tahoma, 8.25pt"/>
+          </TableRow>
+          <TableRow Name="Row7">
+            <TableCell Name="Cell19" Border.Lines="All" Border.Color="White" Fill.Color="Gainsboro" CanGrow="true" Text="Total" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 8.25pt"/>
+            <TableCell Name="Cell20" Border.Lines="All" Border.Color="White" Fill.Color="WhiteSmoke" CanGrow="true" Text="3.94" HorzAlign="Right" VertAlign="Center" Font="Tahoma, 8.25pt"/>
+            <TableCell Name="Cell21" Border.Lines="All" Border.Color="White" Fill.Color="WhiteSmoke" CanGrow="true" Text="17.22" HorzAlign="Right" VertAlign="Center" Font="Tahoma, 8.25pt"/>
+          </TableRow>
+        </MatrixObject>
+      </DataFooterBand>
+    </DataBand>
+  </ReportPage>
+</Report>

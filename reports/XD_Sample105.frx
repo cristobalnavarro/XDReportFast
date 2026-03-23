@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll&#13;&#10;E:\FastXDReport\Windows\FastReport.dll" ReportInfo.Created="03/23/2026 06:12:24" ReportInfo.Modified="03/23/2026 06:12:34" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
+using FastReport;
+using FastReport.Data;
+using FastReport.Utils;
+using FastReport.Table;
+using FastReport.Matrix;
+using XDFastReportBridge;
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /* XD_START */
+    // EXPOSED DATA SOURCES: 
+    public dynamic XD_Report { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic XD_Engine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic mMain { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic mEngine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public string WA_SETCODEJS(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;JS&quot;, s); }
+    public string WA_SETCODEPY(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;PY&quot;, s); }
+    public string WA_SETCODEPHP(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;PHP&quot;, s); }
+    public string WA_SETCODEHB(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;HARBOUR&quot;, s); }
+    public string WA_SETCODECUSTOM(string lang, string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, lang, s); }
+    public string WA_SETCODE(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;HARBOUR&quot;, s); }
+    public string WA_BLOCKHB(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;HARBOUR&quot;, s); }
+    public string WA_BLOCKJS(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;JS&quot;, s); }
+    public string WA_BLOCKPY(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;PY&quot;, s); }
+    public string WA_BLOCK(string s) { return XDFastReportBridge.XDReportEngine.Bridge_XDHBCALL(&quot;WA_EXEC_SETCODE&quot;, &quot;HARBOUR&quot;, s); }
+    /* XD_END */
+    
+
+  }
+}</ScriptText>
+  <Dictionary/>
+  <ReportPage Name="Page1" Watermark.Enabled="true" Watermark.Text="V E R S I O N   D E M O&#13;&#10;X D E V F O R Y O U" Watermark.Font="Arial, 40pt, style=Bold" Watermark.TextFill.Color="120, 169, 169, 169">
+    <ReportTitleBand Name="Title" Width="718.2" Height="37.8" CanGrow="true">
+      <TextObject Name="mDate" Left="378" Top="378" Width="5670" Height="378" Tag="HB_MEMO:Fecha en 400 dias: [WA_SETCODE('RETURN DToC( Date() + 400 )')]" CanGrow="true" Font="Arial, 12pt"/>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

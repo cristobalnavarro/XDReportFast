@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll&#13;&#10;E:\FastXDReport\Windows\FastReport.dll" ReportInfo.Created="03/19/2026 04:44:44" ReportInfo.Modified="03/19/2026 04:44:45" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using FastReport.Matrix;
+using XDFastReportBridge;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /* XD_START */
+    // EXPOSED DATA SOURCES: Fruits, Fruits1
+    public dynamic XD_Report { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic XD_Engine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic mMain { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic mEngine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic Fruits { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Fruits&quot;)); } }
+    public dynamic Fruits1 { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Fruits1&quot;)); } }
+    /* XD_END */
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MySqlDataConnection Name="MySQL"/>
+    <TableDataSource Name="Fruits" ReferenceName="FruitAPI.Fruits" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="name" DataType="System.String"/>
+      <Column Name="id" DataType="System.String"/>
+      <Column Name="family" DataType="System.String"/>
+      <Column Name="order" DataType="System.String"/>
+      <Column Name="genus" DataType="System.String"/>
+      <Column Name="nutritions.calories" DataType="System.String"/>
+      <Column Name="nutritions.fat" DataType="System.String"/>
+      <Column Name="nutritions.sugar" DataType="System.String"/>
+      <Column Name="nutritions.carbohydrates" DataType="System.String"/>
+      <Column Name="nutritions.protein" DataType="System.String"/>
+    </TableDataSource>
+    <TableDataSource Name="Fruits1" ReferenceName="Fruits" DataType="System.Int32" Enabled="true">
+      <Column Name="_internal_id" DataType="System.String"/>
+      <Column Name="name" DataType="System.String"/>
+      <Column Name="id" DataType="System.String"/>
+      <Column Name="family" DataType="System.String"/>
+      <Column Name="order" DataType="System.String"/>
+      <Column Name="genus" DataType="System.String"/>
+      <Column Name="nutritions.calories" DataType="System.String"/>
+      <Column Name="nutritions.fat" DataType="System.String"/>
+      <Column Name="nutritions.sugar" DataType="System.String"/>
+      <Column Name="nutritions.carbohydrates" DataType="System.String"/>
+      <Column Name="nutritions.protein" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="BandaTitulo" Width="718.2" Height="37.8" CanGrow="true">
+      <TextObject Name="TxtTitulo" Width="718.2" Height="37.8" Fill.Color="255, 0, 0" CanGrow="true" Text="REMOTE FRUIT API (fruityvice.com)" HorzAlign="Center" VertAlign="Center" Font="Arial, 14pt"/>
+    </ReportTitleBand>
+    <DataBand Name="BandaDatos" Width="718.2" Height="30.24" CanGrow="true" DataSource="Fruits">
+      <TextObject Name="F_ID" Width="75.6" Height="30.24" CanGrow="true" Text="[Fruits.id]" Font="Arial, 12pt"/>
+      <TextObject Name="F_NAME" Left="113.4" Width="189" Height="30.24" CanGrow="true" Text="[Fruits.name]" Font="Arial, 12pt"/>
+      <TextObject Name="F_FAMILY" Left="340.2" Width="189" Height="30.24" CanGrow="true" Text="[Fruits.family]" Font="Arial, 12pt"/>
+      <TextObject Name="F_CAL" Left="567" Width="151.2" Height="30.24" CanGrow="true" Text="[Fruits.nutritions.calories] cal" Font="Arial, 12pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>

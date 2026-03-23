@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll&#13;&#10;E:\FastXDReport\Windows\FastReport.dll" ReportInfo.Created="03/19/2026 04:37:33" ReportInfo.Modified="03/19/2026 04:37:49" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using FastReport.Matrix;
+using XDFastReportBridge;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /* XD_START */
+    // EXPOSED DATA SOURCES: Customer
+    public dynamic XD_Report { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic XD_Engine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic mMain { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic mEngine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic Customer { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Customer&quot;)); } }
+    /* XD_END */
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MySqlDataConnection Name="MySQL" ConnectionString="rijcmlqLWGnpmTT/WNJu+YZ4tQrT1arfH7qZ0GERuvOW4vWlsDrCYIkNRqcsVLGkZWvzJcFuWqVNn1G1N2T+QHWIPemix5XqU7FNfnGwNSL/ZWvZZqSTcJou4YsXLBaguChlKh/Otv54qaNhGNgBzb5QIhjDoRaPFFFjuvTq5YGGlPklzk=">
+      <TableDataSource Name="Customer" DataType="System.Int32" Enabled="true" SelectCommand="SELECT * FROM Customer ORDER BY state, last, first">
+        <Column Name="id" DataType="System.Int32"/>
+        <Column Name="first" DataType="System.String"/>
+        <Column Name="last" DataType="System.String"/>
+        <Column Name="street" DataType="System.String"/>
+        <Column Name="city" DataType="System.String"/>
+        <Column Name="state" DataType="System.String"/>
+        <Column Name="married" DataType="System.Boolean" BindableControl="CheckBox"/>
+      </TableDataSource>
+    </MySqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="Title" Width="718.2" Height="56.7" CanGrow="true">
+      <TextObject Name="lblTit" Width="756" Height="37.8" CanGrow="true" Text="LISTADO DE CLIENTES POR ESTADO" HorzAlign="Center" VertAlign="Center" Font="Arial, 16pt" TextFill.Color="0, 0, 255"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="Header" Width="718.2" Height="37.8" CanGrow="true">
+      <TextObject Name="hId" Left="18.9" Width="56.7" Height="30.24" Fill.Color="192, 192, 192" CanGrow="true" Text="ID" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="hFirst" Left="83.16" Width="151.2" Height="30.24" Fill.Color="192, 192, 192" CanGrow="true" Text="FIRST" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="hLast" Left="241.92" Width="151.2" Height="30.24" Fill.Color="192, 192, 192" CanGrow="true" Text="LAST" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <TextObject Name="hCity" Left="400.68" Width="151.2" Height="30.24" Fill.Color="192, 192, 192" CanGrow="true" Text="CITY" HorzAlign="Center" VertAlign="Center" Font="Arial, 10pt"/>
+      <LineObject Name="ln1" Top="34.02" Width="756" Border.Width="0.5"/>
+    </PageHeaderBand>
+    <GroupHeaderBand Name="GroupState" Height="45.36" Condition="[Customer.state]">
+      <TextObject Name="lblGroup" Left="18.9" Top="7.56" Width="378" Height="30.24" CanGrow="true" Text="ESTADO: [Customer.state]" VertAlign="Center" Font="Arial, 12pt" TextFill.Color="204, 0, 0"/>
+      <LineObject Name="lnGrp" Top="41.58" Width="756" Border.Color="204, 0, 0" Border.Width="0.5"/>
+      <DataBand Name="Data1" Width="718.2" Height="30.24" CanGrow="true" DataSource="Customer">
+        <TextObject Name="mId" Left="18.9" Width="56.7" Height="30.24" CanGrow="true" Text="[Customer.id]" VertAlign="Center" Font="Arial, 10pt"/>
+        <TextObject Name="mFirst" Left="83.16" Width="151.2" Height="30.24" CanGrow="true" Text="[Customer.first]" VertAlign="Center" Font="Arial, 10pt"/>
+        <TextObject Name="mLast" Left="241.92" Width="151.2" Height="30.24" CanGrow="true" Text="[Customer.last]" VertAlign="Center" Font="Arial, 10pt"/>
+        <TextObject Name="mCity" Left="400.68" Width="151.2" Height="30.24" CanGrow="true" Text="[Customer.city]" VertAlign="Center" Font="Arial, 10pt"/>
+      </DataBand>
+      <GroupFooterBand Name="FooterState" Width="718.2" Height="18.9" CanGrow="true">
+        <LineObject Name="lnSep" Top="7.56" Width="756" Border.Color="128, 128, 128" Border.Width="0.2"/>
+      </GroupFooterBand>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

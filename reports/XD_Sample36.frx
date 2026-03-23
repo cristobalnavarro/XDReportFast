@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReferencedAssemblies="System.dll&#13;&#10;System.Drawing.dll&#13;&#10;System.Windows.Forms.dll&#13;&#10;System.Data.dll&#13;&#10;Microsoft.CSharp.dll&#13;&#10;E:\FastXDReport\Windows\XDFastReportBridge.dll&#13;&#10;E:\FastXDReport\Windows\FastReport.dll" ReportInfo.Created="03/19/2026 04:46:56" ReportInfo.Modified="03/19/2026 04:47:00" ReportInfo.CreatorVersion="2026.1.3.0">
+  <ScriptText>using FastReport.Matrix;
+using XDFastReportBridge;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    /* XD_START */
+    // EXPOSED DATA SOURCES: Discovery
+    public dynamic XD_Report { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic XD_Engine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic mMain { get { return XDFastReportBridge.XDReportEngine._report; } }
+    public dynamic mEngine { get { return XDFastReportBridge.XDReportEngine._report.Engine; } }
+    public dynamic Discovery { get { return new DynamicDataSource(XDFastReportBridge.XDReportEngine._report.GetDataSource(&quot;Discovery&quot;)); } }
+    /* XD_END */
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MySqlDataConnection Name="MySQL" ConnectionString="rijcmlqLWGnpmTT/WNJu+YZ4tQrT1arfH7qZ0GERuvOW4vWlsDrCYIkNRqcsVLGkZWvzJcFuWqVNn1G1N2T+QHWIPemix5XqU7FNfnGwNSL/ZWvZZqSTcJou4YsXLBaguChlKh/Otv54qaNhGNgBzb5QIhjDtCRtAAIckp4yPRovgRLwZc="/>
+    <TableDataSource Name="Discovery" ReferenceName="Discovery" DataType="System.Int32" Enabled="true">
+      <Column Name="TABLE_NAME" DataType="System.String"/>
+    </TableDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="Title" Width="718.2" Height="56.7" CanGrow="true">
+      <TextObject Name="lblTit" Width="718.2" Height="37.8" CanGrow="true" Text="LISTADO DE TABLAS DE BBDD (MYSQL): &lt; Dummy &gt;" HorzAlign="Center" VertAlign="Center" Font="Arial, 16pt" TextFill.Color="0, 102, 204"/>
+    </ReportTitleBand>
+    <ColumnHeaderBand Name="Header" Width="718.2" Height="30.24" CanGrow="true">
+      <TextObject Name="h1" Left="18.9" Width="378" Height="30.24" Fill.Color="192, 192, 192" CanGrow="true" Text="NOMBRE DE LA TABLA" VertAlign="Center" Font="Arial, 11pt"/>
+    </ColumnHeaderBand>
+    <DataBand Name="Data1" Width="718.2" Height="26.46" CanGrow="true" DataSource="Discovery">
+      <TextObject Name="m1" Left="18.9" Top="3.78" Width="378" Height="22.68" CanGrow="true" Text="[Discovery.TABLE_NAME]" VertAlign="Center" Font="Arial, 11pt"/>
+    </DataBand>
+  </ReportPage>
+</Report>
