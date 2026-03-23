@@ -8,7 +8,5 @@ Bridge to FastReport NET
 
 ## Documentation
 
-
-
-XDReportFast API REFERENCE (https://www.xdevos.xdevforyou.net/reportfast).
+XDReportFast API REFERENCE ( https://www.xdevos.xdevforyou.net/reportfast ).
 
