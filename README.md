@@ -18,5 +18,7 @@ XDReportFast API REFERENCE ( https://www.xdevos.xdevforyou.net/reportfast ).
 
 ### 3.- Ejecutar la aplicacion XDREPORT01.EXE
 
+### 4.- Sugerencias, feedbacks en el canal de discord: https://discord.gg/7nTNXcSt
+
 
 
