@@ -13,9 +13,15 @@
 
 ## Instalacion
 
-#### 1.- Ejecutar la aplicacion XDREPORT01.EXE ( Carpeta X86 )
+#### 1.- Copiar la carpeta REPORTS a la carpeta X86
 
-#### 2.- Sugerencias, feedbacks en el canal de discord: https://discord.gg/7nTNXcSt
+#### 2.- Copiar la carpeta REPORTS_ a la carpeta X86
+
+#### 3.- Copiar la carpeta DATA a la carpeta X86
+
+#### 4.- Ejecutar la aplicacion XDREPORT01.EXE ( Carpeta X86 )
+
+#### 5.- Sugerencias, feedbacks en el canal de discord: https://discord.gg/7nTNXcSt
 
 
 
