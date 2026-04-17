@@ -6,11 +6,12 @@
 
 
 
-## Documentation
+## Documentacion
 
 #### XDReportFast API REFERENCE ( https://www.xdevos.xdevforyou.net/reportfast ).
 
-## Instalation
+
+## Instalacion
 
 #### 1.- Copiar el contenido de la carpeta X86 a una carpeta de vuestra eleccion
 
