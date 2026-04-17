@@ -16,7 +16,7 @@ XDReportFast API REFERENCE ( https://www.xdevos.xdevforyou.net/reportfast ).
 
 ### 2.- Haced lo mismo con el resto de carpetas ( la carpeta src no es necesaria )
 
-### 3.- Ejecutar el ejecutable XDREPORT01.EXE
+### 3.- Ejecutar la aplicacion XDREPORT01.EXE
 
 
 
