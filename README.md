@@ -1,6 +1,6 @@
 # XDReportFast
 
-#### Bridge to FastReport NET
+#### Bridge to FastReport NET from Harbour
 
 ( C ) Cristobal Navarro - XDevForYou Solutions -
 
